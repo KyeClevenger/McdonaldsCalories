@@ -6,6 +6,8 @@ body {
     background-color: rgb(194,60,64);
     color: white;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container{
