@@ -1,7 +1,7 @@
     // Function to update the date and time message
     function updateDateTime() {
         const today = new Date();
-        const time = today.getHours();
+        const time = today.getTime();
 
         if (time < 12) {
             return "Good Morning";
@@ -15,15 +15,17 @@
     // Function to display the date, time, and greeting message
     function seeMessage() {
         const today = new Date();
+
         const currentDateTime = today.toLocaleString();
         const timingMessage = updateDateTime();
 
         // Update HTML elements with date, time, and greeting message
+
         document.querySelector('#datetime').textContent = currentDateTime;
         document.querySelector('#message').innerHTML = timingMessage;
 
         // Call the `updateDateTime` function every second
-        setInterval(seeMessage, 1000);
+        setInterval(seeMessage, 1000); 
     }
 
     // Initial call to the seeMessage function
@@ -33,37 +35,36 @@
     let totalCalories = parseInt(localStorage.getItem('totalCalories')) || 0;
         let foodList = JSON.parse(localStorage.getItem('foodList')) || [];
 
-
     // McDonald's menu with food items and their respective calories
     const mcdonaldsMenu = [
         { name: 'Big Mac', calories: 590 },
-    { name: 'Quarter Pounder', calories: 520 },
-    { name: 'Double Quarter', calories: 740 },
-    { name: 'Spicy', calories: 400 },
-    { name: 'Cheeseburger', calories: 300 },
-    { name: 'Hamburger', calories: 250 },
-    { name: 'McDouble', calories: 400 },
-    { name: 'Double Cheese', calories: 450 },
-    { name: '10 McNuggets', calories: 420 },
-    { name: '6 McNuggets', calories: 250 },
-    { name: '4 McNuggets', calories: 170 },
-    { name: 'Crispy', calories: 470},
-    { name: 'Deluxe Crispy', calories: 530 },
-    { name: 'Oreo McFlurry', calories: 510 },
-    { name: 'M&M McFlurry', calories: 650 },
-    { name: 'Cone', calories: 200 },
-    { name: 'Apple Pie', calories: 240 },
-    { name: 'Large Fry', calories: 480 },
-    { name: 'Medium Fry', calories: 320 },
-    { name: 'Small Fry', calories: 230 },
-    { name: 'Egg Muffin', calories: 300 },
-    { name: 'Hash Brown', calories: 140 },
-    { name: 'Bec Mcgriddle', calories: 430 },
-    { name: 'Bec Biscuit', calories: 460 },
-    { name: 'Big Breakfast', calories: 1340 },
-    { name: 'Burrito', calories: 300 },
-    { name: 'Hotcakes', calories: 580 },
-    { name: 'Oatmeal', calories: 320 },
+        { name: 'Quarter Pounder', calories: 520 },
+        { name: 'Double Quarter', calories: 740 },
+        { name: 'Spicy', calories: 400 },
+        { name: 'Cheeseburger', calories: 300 },
+        { name: 'Hamburger', calories: 250 },
+        { name: 'McDouble', calories: 400 },
+        { name: 'Double Cheese', calories: 450 },
+        { name: '10 McNuggets', calories: 420 },
+        { name: '6 McNuggets', calories: 250 },
+        { name: '4 McNuggets', calories: 170 },
+        { name: 'Crispy', calories: 470},
+        { name: 'Deluxe Crispy', calories: 530 },
+        { name: 'Oreo McFlurry', calories: 510 },
+        { name: 'M&M McFlurry', calories: 650 },
+        { name: 'Cone', calories: 200 },
+        { name: 'Apple Pie', calories: 240 },
+        { name: 'Large Fry', calories: 480 },
+        { name: 'Medium Fry', calories: 320 },
+        { name: 'Small Fry', calories: 230 },
+        { name: 'Egg Muffin', calories: 300 },
+        { name: 'Hash Brown', calories: 140 },
+        { name: 'Bec Mcgriddle', calories: 430 },
+        { name: 'Bec Biscuit', calories: 460 },
+        { name: 'Big Breakfast', calories: 1340 },
+        { name: 'Burrito', calories: 300 },
+        { name: 'Hotcakes', calories: 580 },
+        { name: 'Oatmeal', calories: 320 },
         { name: 'Apple Slices', calories: 15 },
         { name: 'Caramel Sundae', calories: 270 },
         { name: 'Sausage Muffin', calories: 400 },
@@ -90,7 +91,6 @@
         { name: 'Blue Slushie', calories: 110},
         { name: 'Red Slushie', calories: 110},
         { name: 'Coke Slushie', calories: 110}
-        // Add more McDonald's items as needed
     ];
 
     // Display initial total calories on the page
@@ -102,7 +102,7 @@
     // Function to add calories when the "Add" button is clicked
     function addCalories() {
         // Get the entered food name and amount from the input fields
-        const foodName = document.getElementById('foodName').value.toLowerCase();
+        const foodName = document.getElementById('foodName').value.toLowerCase().trim();
         const amount = parseInt(document.getElementById('amount').value);
     
         // Check if the entered foodName exists in the mcdonaldsMenu array
@@ -145,7 +145,7 @@
             
             // Display food item details and create a delete button
             listItem.innerHTML = `${foodItem.foodName}: ${totalCaloriesForItem} calories (${foodItem.amount}) 
-                                  <button onclick="deleteFoodItem(${index})">Delete</button>`;
+                <button onclick="deleteFoodItem(${index})">Delete</button>`;
             
             foodListElement.appendChild(listItem);
         });
@@ -172,8 +172,8 @@ function isNewDay(lastResetDate) {
 
     // Compare the day, month, and year
     return today.getDate() !== lastReset.getDate() ||
-           today.getMonth() !== lastReset.getMonth() ||
-           today.getFullYear() !== lastReset.getFullYear();
+        today.getMonth() !== lastReset.getMonth() ||
+        today.getFullYear() !== lastReset.getFullYear();
 }
 
 // Function to reset JSON data
@@ -192,10 +192,7 @@ if (!lastResetDate || isNewDay(lastResetDate)) {
 }
 
 // Your code to use or initialize the JSON data goes here
-// For example, if using LocalStorage:
 const jsonData = JSON.parse(localStorage.getItem('yourDataKey')) || {};
-
-// Use or update jsonData as needed
 
 // Update last reset date to today (to avoid resetting multiple times in a day)
 localStorage.setItem('lastResetDate', new Date().toISOString());
