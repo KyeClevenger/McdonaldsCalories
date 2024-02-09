@@ -1,35 +1,35 @@
-    // Function to update the date and time message
-    function updateDateTime() {
-        const today = new Date();
-        const time = today.getTime();
+    // // Function to update the date and time message
+    // function updateDateTime() {
+    //     const today = new Date();
+    //     const time = today.getTime();
 
-        if (time < 12) {
-            return "Good Morning";
-        } else if (time < 18) {
-            return "Good Afternoon";
-        } else {
-            return "Good Evening";
-        }
-    }
+    //     if (time < 12) {
+    //         return "Good Morning";
+    //     } else if (time < 18) {
+    //         return "Good Afternoon";
+    //     } else {
+    //         return "Good Evening";
+    //     }
+    // }
 
-    // Function to display the date, time, and greeting message
-    function seeMessage() {
-        const today = new Date();
+    // // Function to display the date, time, and greeting message
+    // function seeMessage() {
+    //     const today = new Date();
 
-        const currentDateTime = today.toLocaleString();
-        const timingMessage = updateDateTime();
+    //     const currentDateTime = today.toLocaleString();
+    //     const timingMessage = updateDateTime();
 
-        // Update HTML elements with date, time, and greeting message
+    //     // Update HTML elements with date, time, and greeting message
 
-        document.querySelector('#datetime').textContent = currentDateTime;
-        document.querySelector('#message').innerHTML = timingMessage;
+    //     document.querySelector('#datetime').textContent = currentDateTime;
+    //     document.querySelector('#message').innerHTML = timingMessage;
 
-        // Call the `updateDateTime` function every second
-        setInterval(seeMessage, 1000); 
-    }
+    //     // Call the `updateDateTime` function every second
+    //     setInterval(seeMessage, 1000); 
+    // }
 
-    // Initial call to the seeMessage function
-    seeMessage();
+    // // Initial call to the seeMessage function
+    // seeMessage();
 
     // Initialize totalCalories and foodList from localStorage or default to 0 and an empty array
     let totalCalories = parseInt(localStorage.getItem('totalCalories')) || 0;
