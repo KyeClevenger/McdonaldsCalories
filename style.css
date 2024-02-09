@@ -15,26 +15,6 @@ body {
     flex-direction: column;
 }
 
-.inside{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    margin-top: 50%;
-    flex-direction: column;
-}
-
-.flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 #message, #datetime{
     margin: 10px;
-}
-
-.logo{
-    width: 100px;
 }
