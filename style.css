@@ -15,6 +15,6 @@ body {
     flex-direction: column;
 }
 
-#message, #datetime{
+#message, #datetime, button, h2{
     margin: 10px;
 }
